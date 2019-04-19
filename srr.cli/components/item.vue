@@ -28,24 +28,28 @@ export default {
     return {
       isshow: false,
       bgcolor: "white",
-// itemShow:false
-
+      itemShow: false
     };
   },
 
   //为第一次渲染显示做一个同步的准备工作 效率高
   beforeMount() {
     //根据接收的数据来指定completed的值
-    // this.itemShow = this.user.isshow;
+    this.itemShow = this.user.isshow;
   },
   // 在第一次显示后, 立即做一个异步工作(发ajax请求, 启动定时器)
   mounted() {
-    this.itemShow=this.user.isshow
+    this.itemShow = this.user.isshow;
   },
+
+  //watch是单向的
   watch: {
     itemShow(val) {
-      console.log(111)
+      console.log(111);
       this.Setuser(this.user, val);
+    },
+    " user.isshow"(val) {
+      this.itemShow = val;
     }
   },
 
@@ -64,23 +68,22 @@ export default {
       }
     }
   },
-  computed: {
-    itemShow: {
-        get() {
-         console.log('get()')
+  // computed: {
+  //   itemShow: {
+  //       get() {
+  //        console.log('get()')
 
-          return this.user.isshow;
-        },
+  //         return this.user.isshow;
+  //       },
 
+  //       set(val) {
+  //        console.log('set()')
 
-        set(val) {
-         console.log('set()')
+  //         this.Setuser(this.user, val);
 
-          this.Setuser(this.user, val);
-          
-        }
-    }
-  },
+  //       }
+  //   }
+  // },
 
   mounted() {
     // console.log(this.index);

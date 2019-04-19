@@ -18,7 +18,9 @@
       <div class="col-xs-6">
         <div class="panel">
           <div class="panel-body">
-            <router-view/>
+            <!-- <keep-alive> -->
+              <router-view/>
+            <!-- </keep-alive> -->
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import about from '../viws/about.vue'
 import home from '../viws/home.vue'
 import news from '../viws/News.vue'
 import message from '../viws/Message.vue'
+import  MessageDetail from '../viws/MessageDetail.vue'
 Vue.use(VueRouter)
 export default new VueRouter({
   routes: [{
@@ -16,7 +17,18 @@ export default new VueRouter({
         },
         {
           path: '/home/message',
-          component: message
+          component: message,
+
+          children:[
+            {
+              path:'/home/message/detail/:id',
+              component:MessageDetail
+            },
+            // {
+              // path:'/detail',
+              // redirect:MessageDetail
+            // }
+          ]
         },
         {
             path:'/home',

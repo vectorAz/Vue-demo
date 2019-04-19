@@ -37,15 +37,13 @@ export default {
         console.log(result);
         console.log(data);
 
-        let user = data.map((item) => {
+        let user = data.map(item => {
           return {
             name: item.login,
             imgurl: item.avatar_url,
             Url: item.html_url
           };
         });
-
-
         this.users = user;
         this.Loading = false;
       } catch (error) {
